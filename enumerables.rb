@@ -1,4 +1,4 @@
-all?
+all? {|object| operation including object }
 
 Array true
 Enumerable true
@@ -23,7 +23,7 @@ three_array.all?
 
 ----------
 
-any?
+any? {|object| operation including object }
 
 Array true
 Enumerable true
@@ -63,7 +63,7 @@ chunk_while
 
 ----------
 
-collect
+collect {|object| operation including object }
 
 Array true
 Enumerable true
@@ -86,7 +86,7 @@ Literally the exact same as .map--collect is an alias
 
 ----------
 
-collect_concat
+collect_concat {|object| operation including object }
 
 Array true
 Enumerable true
@@ -103,9 +103,31 @@ two_array = ["jim", "dana"]
 two_array.collect_concat {|i| i + "lol"}
   => ["jimlol", "danalol"]
 
+Literally the exact same as flat_map--collect_concat is an alias
+
 ----------
 
+count
+count(thing)
+count {|object| operation including object }
 
+Array true
+Enumerable true
+insert block? true
+
+counts the things in an array
+with parens, counts the number of things in the paren
+with block, counts the number of things in the block that are true
+
+one_array = [10, 20, 30, 40, 50]
+one_array.count
+  => 5
+one_array.count(30)
+  => 1
+one_array.count {|i| i % 20 == 0}
+  => 2
+
+----------
 
 
 
