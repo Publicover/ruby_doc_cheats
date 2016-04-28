@@ -176,10 +176,47 @@ removes the first n elements from an array and returns what is left
 one_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 one_array.drop(4)
   => [5, 6, 7, 8, 9, 10]
- 
 
+----------
 
+drop_while {|object| operation including object }
 
+Array true
+Enumerable true
+insert block? true
+
+removes everything before, but not including, the first element that returns nil or false from the block
+you get the whole array if the first element is false
+you get an empty array if the first element is true
+
+one_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+one_array.drop_while {|i| i == 6}
+  => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+one_array.drop_while {|i| i < 6}
+  => [6, 7, 8, 9, 10]
+one_array.drop_while {|i| i > 6}
+  => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+----------
+
+each_cons(n) {|object| operation including object }
+
+Array true
+Enumerable true
+insert block? true
+
+returns each n consecutive elements
+
+one_array = [1,3,4,5,6,7,8,9,2]
+one_array.each_cons(5) {|i| p i }
+  [1, 3, 4, 5, 6]
+  [3, 4, 5, 6, 7]
+  [4, 5, 6, 7, 8]
+  [5, 6, 7, 8, 9]
+  [6, 7, 8, 9, 2]
+  => nil
+
+----------
 
 
 
