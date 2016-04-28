@@ -161,6 +161,22 @@ two_array = [1, 3, 5, 7, 11, 13, 14]
 two_array.detect {|i| i % 2 == 0 }
   => 14
 two_array.detect {|i| i % 1 == 0 }
+  => 1
+
+----------
+
+drop(n)
+
+Array true
+Enumerable true
+insert block? false
+
+removes the first n elements from an array and returns what is left
+
+one_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+one_array.drop(4)
+  => [5, 6, 7, 8, 9, 10]
+ 
 
 
 
