@@ -96,6 +96,15 @@ gives you a new array with the concatenated results of running the block on each
 
 if you do not follow it with a block, ruby will return an enumerator
 
+one_array = [1, 2, 3, 4, 5]
+one_array.collect_concat {|i| [i, "farts", -i]}
+  => [1, "farts", -1, 2, "farts", -2, 3, "farts", -3, 4, "farts", -4, 5, "farts", -5]
+two_array = ["jim", "dana"]
+two_array.collect_concat {|i| i + "lol"}
+  => ["jimlol", "danalol"]
+
+----------
+
 
 
 
