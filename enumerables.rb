@@ -129,6 +129,58 @@ one_array.count {|i| i % 20 == 0}
 
 ----------
 
+cycle(n) {|object| operation including object }
+
+Array true
+Enumerable true
+insert block? true
+
+performs the operation in the block on each of the elements n times
+if n is nil or left off, it goes forever
+some examples show it with .zip
+  where ar1 is days of the week and ar2 is meals
+
+one_array = ["1", "2", "3", "4", "5"]
+one_array.cycle(5) {|i| print i}
+  1234512345123451234512345=> nil
+
+----------
+
+detect {|object| operation including object }
+
+Array true
+Enumerable true
+insert block? true
+
+looks through your array and pulls out the first thing that returns true from the block
+
+one_array = ["ted", "fred", "jenny"]
+one_array.detect {|i| i == "jenny"}
+  => "jenny"
+two_array = [1, 3, 5, 7, 11, 13, 14]
+two_array.detect {|i| i % 2 == 0 }
+  => 14
+two_array.detect {|i| i % 1 == 0 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
