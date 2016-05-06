@@ -218,6 +218,25 @@ one_array.each_cons(5) {|i| p i }
 
 ----------
 
+each_entry {|object| operation including object }
+
+Array true
+Enumerable true
+insert block? true
+
+#TODO
+
+----------
+
+each_slice(n) {|object| operation including object }
+
+Array true
+Enumerable true
+insert block? true
+
+#TODO
+
+----------
 
 
 
@@ -256,7 +275,8 @@ one_array.each_cons(5) {|i| p i }
 
 
 
-#
+
+
 
 
 
