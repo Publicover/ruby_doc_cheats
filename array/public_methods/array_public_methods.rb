@@ -143,6 +143,165 @@ zam_another <=> new_array
 new_array <=> holy_cow
   => nil
 
+----------
+
+==
+[ary] == [ary]
+compares elements and returns a boolean
+a comparison is true if each array has the same number of elements and if each element is equal
+
+new_array = [1, 2, 3, 4, 5]
+another_array = [1, 2, 3, 4, 5]
+zam_another = [2, 3, 4, 5]
+
+new_array == another_array
+  => true
+new_array == zam_another
+  => false
+
+----------
+
+ary[index]
+ary[start, length]
+ary[range]
+.slice(index)
+.slice(start, length)
+.slice(range)
+
+ELEMENT REFERENCE
+
+returns element at index
+returns subarray starting at index and continuing for length
+returns subarray specified by range
+a negative index counts backwards--the last element is -1
+an empty array is returned when the starting index of a range is at the end of the array
+returns nil if the index is out of range
+
+new_array = [1, 2, 3, 4, 5]
+new_array[0]
+  => 1
+new_array[1, 3]
+  => [2, 3, 4]
+new_array[0..3]
+  => [1, 2, 3, 4]
+new_array[9]
+  => nil
+new_array[5, 1]
+  => []
+new_array.slice(0)
+  => 1
+new_array.slice(1, 3)
+  => [2, 3, 4]
+new_array.slice(0..3)
+  => [1, 2, 3, 4]
+new_array.slice(9)
+  => nil
+
+----------
+
+ELEMENT ASSIGNMENT
+
+ary[index] = obj, other_ary or nil => obj
+ary[start, length] = obj, other_ary or nil => obj
+ary[range] = obj, other_ary or nil => obj or other_ary or nil
+create element at index
+similar to push and unshift
+IndexError is raised if a negative index points past the beginning of the array
+
+new_array = Array.new
+new_array[0] = 1
+  => 1
+  new_array => => [1]
+new_array[1, 3] = "jim_rulez"
+  => "jim_rulez"
+  new_array => [1, "jim_rulez"]
+new_array[4..6] = "dana_rulez!"
+  => "dana_rulez!"
+  new_array => [1, "jim_rulez", nil, nil, "dana_rulez!"]
+
+----------
+
+.any?
+[ary].any? {|object| block}
+returns boolean if array includes element
+
+new_array = [1, 2, 3, 4, 5]
+new_array.any? {|num| num > 3}
+  => true
+new_array.any? {|num| num > 10}
+  => false
+
+----------
+
+.assoc(object)
+compares one array to another whose elements are also arrays
+returns first array that matches or nil if there is no match
+
+new_array = [[1, 1], [2, 2], [3, 3], [4, 4], "not_array"]
+new_array.assoc(2)
+  => [2, 2]
+new_array.assoc("not_array")
+  => nil
+
+----------
+
+.at(index)
+returns element at index and returns nil if index is out of range
+
+new_array = [1, 2, 3, 4, 5]
+new_array.at(0)
+  => 1
+new_array.at(10)
+  => nil
+
+----------
+
+.bsearch {|object| block}
+returns element by using binary search
+has two modes: find-minimum and find-any--for both, elements of array must be sorted
+
+#TODO
+
+----------
+
+.bsearch_index {|object| block}
+
+#TODO
+
+----------
+
+.clear
+removes all elements from array, making a blank array
+
+new_array = [1, 2, 3, 4, 5]
+new_array.clear
+  => []
+
+----------
+
+.collect {|element| block}
+.map.with_index {|element, iterator| block}
+returns new array containing values from the block
+
+new_array = [1, 2, 3, 4, 5]
+new_array.collect {|num| num * 10}
+  => [10, 20, 30, 40, 50]
+new_array.map.with_index {|num, iterator| num * iterator}
+  => [0, 2, 6, 12, 20]
+another_array = ["a", "b", "c", "d"]
+another_array.map.with_index {|num, iterator| num * iterator}
+  => ["", "b", "cc", "ddd"]
+
+----------
+
+
+
+
+
+
+
+
+
 
 
 
