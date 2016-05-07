@@ -86,6 +86,40 @@ one_array * "jim"
 
 ----------
 
++
+[ary] + [ary] => [new_array]
+returns a new array by concatenating both arrays
+
+new_array = [1, 2, 3]
+another_array = [4, 5, 6]
+
+concat_array = new_array + another_array
+  => [1, 2, 3, 4, 5, 6]
+  concat_array => [1, 2, 3, 4, 5, 6]
+
+----------
+
+-
+[ary] - [ary] => [new_array]
+returns a new array by subtracting elements of the second from the first
+
+new_array = [1, 2, 3, 4, 5]
+another_array = [4, 5, 6, 7, 8]
+
+difference_array = new_array - another_array
+  => [1, 2, 3]
+  difference_array => [1, 2, 3]
+
+----------
+
+<<
+[ary] << obj 
+.push
+adds element to end of array
+
+new_array = [1, 2, 3, 4, 5]
+new_array << "hey" << "there"
+  => [1, 2, 3, 4, 5, "hey", "there"]
 
 
 
