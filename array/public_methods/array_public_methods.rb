@@ -113,7 +113,7 @@ difference_array = new_array - another_array
 ----------
 
 <<
-[ary] << obj 
+[ary] << obj
 .push
 adds element to end of array
 
@@ -121,6 +121,27 @@ new_array = [1, 2, 3, 4, 5]
 new_array << "hey" << "there"
   => [1, 2, 3, 4, 5, "hey", "there"]
 
+----------
+
+<=>
+[ary] <=> [ary]
+compares elements one by one and returns -1, 0, +1 or nil as soon as comparison is non-zero
+if all elements are equal, lengths are compared
+  nil is returned if second compared object is not an array
+
+new_array = [1, 2, 3, 4, 5]
+another_array = [1, 2, 3, 4, 5]
+zam_another = [2, 3, 4, 5]
+holy_cow = "holy_cow"
+
+new_array <=> another_array
+  => 0
+new_array <=> zam_another
+  => -1
+zam_another <=> new_array
+  => 1
+new_array <=> holy_cow
+  => nil
 
 
 
