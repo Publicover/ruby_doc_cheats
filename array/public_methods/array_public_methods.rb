@@ -294,7 +294,108 @@ another_array.map.with_index {|num, iterator| num * iterator}
 
 ----------
 
+.collect! {|element| block}
+.map! {|element| block}
+.collect.with_index {|element, iterator| block}
+changes original array to contain values from the block
 
+new_array = [1, 2, 3, 4, 5]
+new_array.collect! {|num| num * 10}
+  => [10, 20, 30, 40, 50]
+new_array.map! {|num| num * 10}
+  => [10, 20, 30, 40, 50]
+new_array.collect!.with_index {|num, iterator| num * iterator}
+  => [0, 2, 6, 12, 20]
+
+----------
+
+.combination
+
+#TODO
+
+----------
+
+.compact
+returns a copy of array with all nil elements removed
+
+new_array = [1, nil, 2, nil, nil, 3, 4, 5, nil,]
+new_array.compact
+  => [1, 2, 3, 4, 5]
+
+----------
+
+.compact!
+returns a copy of array with all nil elements removed
+
+new_array = [1, nil, 2, nil, nil, 3, 4, 5, nil,]
+new_array.compact!
+  => [1, 2, 3, 4, 5]
+  new_array => [1, 2, 3, 4, 5]
+
+----------
+
+.concat(another_array)
+concatenates second array into first
+
+new_array = ["jim", "rulez"]
+new_array.concat(["yup", "yup"])
+  => ["jim", "rulez", "yup", "yup"]
+
+----------
+
+.count
+.count(object)
+.count {|element| return true value}
+returns number of elements
+with one argument, returns number of elements equal to object with ==
+with a block, returns number of times block is true for each element
+
+new_array = [1, 2, 3, 4, 5]
+new_array.count
+  => 5
+another_array =  ["what", "what", "in", "the", "butt"]
+another_array.count
+  => 5
+another_array.count("what")
+  => 2
+another_array.count {|word| word.length < 3}
+  => 1
+
+----------
+
+.cycle(n) {|element| block}
+returns nil after running the block operation n number of times
+goes forever if n is omitted or nil
+
+new_array = [1, 2, 3, 4, 5]
+new_array.cycle(3) {|x| print x}
+  123451234512345=> nil
+new_array.cycle(2) {|x| x < 4}
+  => nil
+
+----------
+
+.delete(obj)
+.delete(obj) { block }
+deletes element equal and returns the last deleted element or nil if it does not exist
+returns element in the block if the object does not exist
+
+new_array = [1, 2, 3, 4, 5]
+new_array.delete(3)
+  => 3
+  new_array => [1, 2, 4, 5]
+new_array.delete(10) {"sorry, dude, it's not here"}
+  => "sorry, dude, it's not here"
+
+----------
+
+.delete_at(index)
+deletes by index
+
+new_array = [1, 2, 3, 4, 5]
+new_array.delete_at(0)
+=> 1
+new_array => [2, 3, 4, 5]
 
 
 
