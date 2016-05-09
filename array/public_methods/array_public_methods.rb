@@ -379,6 +379,7 @@ new_array.cycle(2) {|x| x < 4}
 .delete(obj) { block }
 deletes element equal and returns the last deleted element or nil if it does not exist
 returns element in the block if the object does not exist
+destructive
 
 new_array = [1, 2, 3, 4, 5]
 new_array.delete(3)
@@ -391,12 +392,73 @@ new_array.delete(10) {"sorry, dude, it's not here"}
 
 .delete_at(index)
 deletes by index
+destructive
 
 new_array = [1, 2, 3, 4, 5]
 new_array.delete_at(0)
-=> 1
-new_array => [2, 3, 4, 5]
+  => 1
+  new_array => [2, 3, 4, 5]
 
+----------
+
+.delete_if {|element| true for element}
+deletes each element that evaluates for true in the block
+destructive
+
+new_array = [1, 2, 3, 4, 5]
+new_array.delete_if {|num| num < 3}
+  => [3, 4, 5]
+another_array = ["jim", "rulez", "jim", "rulez", "jim", "rulez",]
+another_array.delete_if {|word| word == "jim"}
+  => ["rulez", "rulez", "rulez"]
+
+----------
+
+.dig =(obj, obj...)
+returns the nested value according to indices
+
+new_array = ["arr1spot1", ["arr2spot1", "arr2spot2", ["arr3spot1", "arr3spot2", "arr3spot3"]]]
+new_array.dig(0)
+  => "arr1spot1"
+new_array.dig(1)
+  => ["arr2spot1", "arr2spot2", ["arr3spot1", "arr3spot2", "arr3spot3"]]
+new_array.dig(1, 1)
+  => "arr2spot2"
+new_array.dig(1, 1, 1)
+  => TypeError: String does not have #dig method
+
+----------
+
+.drop(n)
+.take(n)
+returns remaining elements after first n have been dropped
+
+new_array = [1, 2, 3, 4, 5]
+new_array.drop(3)
+  => [4, 5]
+new_array = [1, 2, 3, 4, 5]
+new_array.take(3)
+  => [4, 5]
+
+----------
+
+.drop_while {|element| first false element}
+.take_while {|element| first false element}
+
+new_array = [1, 2, 3, 4, 5]
+new_array.drop_while {|num| num < 2}
+  => [2, 3, 4, 5]
+new_array = [1, 2, 3, 4, 5]
+new_array.take_while {|num| num < 2}
+  => [2, 3, 4, 5]
+
+----------
+
+.each {|element| element in block}
+performs block operation on each element
+
+new_array = [1, 2, 3, 4, 5]
+new_array.each {|num| print num + 20}
 
 
 
