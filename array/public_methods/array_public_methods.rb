@@ -455,10 +455,73 @@ new_array.take_while {|num| num < 2}
 ----------
 
 .each {|element| element in block}
-performs block operation on each element
+performs block operation on each element, returns original array
 
 new_array = [1, 2, 3, 4, 5]
 new_array.each {|num| print num + 20}
+  2122232425=> [1, 2, 3, 4, 5]
+
+new_array.each do |num|
+  print num + 20
+end
+  2122232425=> [1, 2, 3, 4, 5]
+
+----------
+
+.each_index {|index_num| index_num in block}
+performs block operation on index number of each element
+
+new_array = ["jim", "rulez", "jim", "rulez"]
+new_array.each_index {|index_num| print index_num + 20}
+  20212223=> ["jim", "rulez", "jim", "rulez"]
+
+----------
+
+.empty?
+returns true if array is empty
+
+new_array = []
+new_array.empty?
+  => true
+another_array = ["jim", "rulez", "jim", "rulez"]
+another_array.empty?
+  => false
+
+----------
+
+.eql?(other_ary)
+returns true if the two arrays are equal
+
+new_array = [1, 2, 3, 4, 5]
+new_array.eql?([1, 2, 3, 4, 5])
+  => true
+new_array.eql?([2, 3, 4, 5, 6])
+  => false
+
+----------
+
+.fetch(index)
+.fetch(index, default_value)
+.fetch (index) {|return_value| return_value if invalid}
+with one argument, this returns element at index number
+with two arguments, this sets a default value if index is out of range
+with one argument and a block, returns value in block after iterating over element
+
+new_array = [1, 2, 3, 4, 5]
+new_array.fetch(1)
+  => 2
+new_array.fetch(5, "nothing here")
+  => "nothing here"
+new_array.fetch(5) {|element| puts "#{element} is out of range"}
+  5 is out of range => nil
+
+----------
+
+
+
+
+
+
 
 
 
