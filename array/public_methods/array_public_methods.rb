@@ -37,7 +37,7 @@ new_array[0]["jim"] = "rulez"
 
 .try_convert
 tries to convert object into array using .to_ary
-returns converted array or nil if the object cannot be converted
+return converted array or nil if the object cannot be converted
 
 Array.try_convert(["jim"])
   => ["jim"]
@@ -60,7 +60,7 @@ PUBLIC INSTANCE METHODS
 
 &
 [ary] & [ary]
-returns new array that has elements common to both arrays
+return new array that has elements common to both arrays
 
 one_array = [1, 2, 3, 4, 5]
 another_array = [1, 3, 5, 7, 9]
@@ -74,8 +74,8 @@ one_array & another_array
 [ary] * integer => [new_array]
 [ary] * string => [new_string]
 
-returns new array by concatenating [integer] versions of [ary]
-returns new string by concatenating [integer] versions of [string]
+return new array by concatenating [integer] versions of [ary]
+return new string by concatenating [integer] versions of [string]
 
 one_array = [1, 2, 3, 4, 5]
 
@@ -88,7 +88,7 @@ one_array * "jim"
 
 +
 [ary] + [ary] => [new_array]
-returns a new array by concatenating both arrays
+return a new array by concatenating both arrays
 
 new_array = [1, 2, 3]
 another_array = [4, 5, 6]
@@ -101,7 +101,7 @@ concat_array = new_array + another_array
 
 -
 [ary] - [ary] => [new_array]
-returns a new array by subtracting elements of the second from the first
+return a new array by subtracting elements of the second from the first
 
 new_array = [1, 2, 3, 4, 5]
 another_array = [4, 5, 6, 7, 8]
@@ -125,7 +125,7 @@ new_array << "hey" << "there"
 
 <=>
 [ary] <=> [ary]
-compares elements one by one and returns -1, 0, +1 or nil as soon as comparison is non-zero
+compares elements one by one and return -1, 0, +1 or nil as soon as comparison is non-zero
 if all elements are equal, lengths are compared
   nil is returned if second compared object is not an array
 
@@ -147,7 +147,7 @@ new_array <=> holy_cow
 
 ==
 [ary] == [ary]
-compares elements and returns a boolean
+compares elements and return a boolean
 a comparison is true if each array has the same number of elements and if each element is equal
 
 new_array = [1, 2, 3, 4, 5]
@@ -170,12 +170,12 @@ ary[range]
 
 ELEMENT REFERENCE
 
-returns element at index
-returns subarray starting at index and continuing for length
-returns subarray specified by range
+return element at index
+return subarray starting at index and continuing for length
+return subarray specified by range
 a negative index counts backwards--the last element is -1
 an empty array is returned when the starting index of a range is at the end of the array
-returns nil if the index is out of range
+return nil if the index is out of range
 
 new_array = [1, 2, 3, 4, 5]
 new_array[0]
@@ -223,7 +223,7 @@ new_array[4..6] = "dana_rulez!"
 
 .any?
 [ary].any? {|object| block}
-returns boolean if array includes element
+return boolean if array includes element
 
 new_array = [1, 2, 3, 4, 5]
 new_array.any? {|num| num > 3}
@@ -235,7 +235,7 @@ new_array.any? {|num| num > 10}
 
 .assoc(object)
 compares one array to another whose elements are also arrays
-returns first array that matches or nil if there is no match
+return first array that matches or nil if there is no match
 
 new_array = [[1, 1], [2, 2], [3, 3], [4, 4], "not_array"]
 new_array.assoc(2)
@@ -246,7 +246,7 @@ new_array.assoc("not_array")
 ----------
 
 .at(index)
-returns element at index and returns nil if index is out of range
+return element at index and return nil if index is out of range
 
 new_array = [1, 2, 3, 4, 5]
 new_array.at(0)
@@ -257,7 +257,7 @@ new_array.at(10)
 ----------
 
 .bsearch {|object| block}
-returns element by using binary search
+return element by using binary search
 has two modes: find-minimum and find-any--for both, elements of array must be sorted
 
 #TODO
@@ -281,7 +281,7 @@ new_array.clear
 
 .collect {|element| block}
 .map.with_index {|element, iterator| block}
-returns new array containing values from the block
+return new array containing values from the block
 
 new_array = [1, 2, 3, 4, 5]
 new_array.collect {|num| num * 10}
@@ -316,7 +316,7 @@ new_array.collect!.with_index {|num, iterator| num * iterator}
 ----------
 
 .compact
-returns a copy of array with all nil elements removed
+return a copy of array with all nil elements removed
 
 new_array = [1, nil, 2, nil, nil, 3, 4, 5, nil,]
 new_array.compact
@@ -325,7 +325,7 @@ new_array.compact
 ----------
 
 .compact!
-returns a copy of array with all nil elements removed
+return a copy of array with all nil elements removed
 
 new_array = [1, nil, 2, nil, nil, 3, 4, 5, nil,]
 new_array.compact!
@@ -346,9 +346,9 @@ new_array.concat(["yup", "yup"])
 .count
 .count(object)
 .count {|element| return true value}
-returns number of elements
-with one argument, returns number of elements equal to object with ==
-with a block, returns number of times block is true for each element
+return number of elements
+with one argument, return number of elements equal to object with ==
+with a block, return number of times block is true for each element
 
 new_array = [1, 2, 3, 4, 5]
 new_array.count
@@ -364,7 +364,7 @@ another_array.count {|word| word.length < 3}
 ----------
 
 .cycle(n) {|element| block}
-returns nil after running the block operation n number of times
+return nil after running the block operation n number of times
 goes forever if n is omitted or nil
 
 new_array = [1, 2, 3, 4, 5]
@@ -377,8 +377,8 @@ new_array.cycle(2) {|x| x < 4}
 
 .delete(obj)
 .delete(obj) { block }
-deletes element equal and returns the last deleted element or nil if it does not exist
-returns element in the block if the object does not exist
+deletes element equal and return the last deleted element or nil if it does not exist
+return element in the block if the object does not exist
 destructive
 
 new_array = [1, 2, 3, 4, 5]
@@ -415,7 +415,7 @@ another_array.delete_if {|word| word == "jim"}
 ----------
 
 .dig =(obj, obj...)
-returns the nested value according to indices
+return the nested value according to indices
 
 new_array = ["arr1spot1", ["arr2spot1", "arr2spot2", ["arr3spot1", "arr3spot2", "arr3spot3"]]]
 new_array.dig(0)
@@ -431,7 +431,7 @@ new_array.dig(1, 1, 1)
 
 .drop(n)
 .take(n)
-returns remaining elements after first n have been dropped
+return remaining elements after first n have been dropped
 
 new_array = [1, 2, 3, 4, 5]
 new_array.drop(3)
@@ -455,7 +455,7 @@ new_array.take_while {|num| num < 2}
 ----------
 
 .each {|element| element in block}
-performs block operation on each element, returns original array
+performs block operation on each element, return original array
 
 new_array = [1, 2, 3, 4, 5]
 new_array.each {|num| print num + 20}
@@ -478,7 +478,7 @@ new_array.each_index {|index_num| print index_num + 20}
 ----------
 
 .empty?
-returns true if array is empty
+return true if array is empty
 
 new_array = []
 new_array.empty?
@@ -490,7 +490,7 @@ another_array.empty?
 ----------
 
 .eql?(other_ary)
-returns true if the two arrays are equal
+return true if the two arrays are equal
 
 new_array = [1, 2, 3, 4, 5]
 new_array.eql?([1, 2, 3, 4, 5])
@@ -503,9 +503,9 @@ new_array.eql?([2, 3, 4, 5, 6])
 .fetch(index)
 .fetch(index, default_value)
 .fetch (index) {|return_value| return_value if invalid}
-with one argument, this returns element at index number
+with one argument, this return element at index number
 with two arguments, this sets a default value if index is out of range
-with one argument and a block, returns value in block after iterating over element
+with one argument and a block, return value in block after iterating over element
 
 new_array = [1, 2, 3, 4, 5]
 new_array.fetch(1)
@@ -516,6 +516,83 @@ new_array.fetch(5) {|element| puts "#{element} is out of range"}
   5 is out of range => nil
 
 ----------
+
+.fill
+
+#TODO
+
+----------
+
+.find_index(obj)
+.find_index {|element| element in block}
+.find_index
+
+return the index of the first object where object == element
+with a block, return the index of the first elemetn that is true
+reutrn an enumerator wihtout a block or argument
+
+new_array = [1, 2, 3, 4, 5]
+new_array.find_index(0)
+  => nil
+new_array.find_index(1)
+  => 0
+new_array.find_index(2)
+  => 1
+another_array = ["jim", "rulez", "and", "you", "fools"]
+another_array.find_index(0)
+  => nil
+another_array.find_index(1)
+  => nil
+another_array.find_index("and")
+  => 2
+new_array.find_index {|num| num < 3}
+  => 0
+new_array.find_index
+  => #<Enumerator: [1, 2, 3, 4, 5]:find_index>
+
+----------
+
+.first
+.first(n)
+return first element of the array
+with one argument, return first n elements of the array
+
+new_array = [1, 2, 3, 4, 5]
+new_array.first
+  => 1
+new_array.first(3)
+  => [1, 2, 3]
+another_array = []
+another_array.first
+  => nil
+another_array.first(3)
+  => []
+
+----------
+
+.flatten
+.flatten(level)
+turn nested arrays into single array with recursion, returns new array
+with one argument, determines the level of recursion
+
+arr1 = [1, 2]
+arr2 = [[3, 4], 5]
+arr3 = [6, 7]
+arr4 = [arr1, arr2, arr3, 8, 9, 10]
+arr4.flatten
+  => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+arr4.flatten(1)
+  => [1, 2, [3, 4], 5, 6, 7, 8, 9, 10]
+arr4.flatten(3)
+  => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+----------
+
+
+
+
+
+
 
 
 
