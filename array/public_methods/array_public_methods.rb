@@ -826,9 +826,174 @@ new_array.reject {|num| num > 3}
 
 ----------
 
+.reject! {|element| block}
+delete element of array that does not return false from the block
 
+new_array = [1, 2, 3, 4, 5]
+new_array.reject! {|num| num > 3}
+=> [1, 2, 3]
+new_array => [1, 2, 3]
 
+----------
 
+.repeated_combination(num) {|element| block}
+
+#TODO
+
+----------
+
+.repeated_permutation
+
+#TODO
+
+----------
+
+.replace(other_ary)
+replace all elements of original array with array in argument
+
+new_array = [1, 2, 3, 4, 5]
+new_array.replace([6, 7, 8])
+  => [6, 7, 8]
+  new_array => [6, 7, 8]
+
+----------
+
+.reverse
+reverse order of elements in an array
+
+new_array = [1, 2, 3, 4, 5]
+new_array.reverse
+  => [5, 4, 3, 2, 1]
+
+----------
+
+.reverse!
+replace elements in array with same elements in reverse order
+
+new_array = [1, 2, 3, 4, 5]
+new_array.reverse
+  => [5, 4, 3, 2, 1]
+  new_array => [5, 4, 3, 2, 1]
+
+----------
+
+.reverse_each {|element| block}
+perform block operation in reverse order
+words exactly like .each
+
+new_array = [1, 2, 3, 4, 5]
+new_array.reverse_each {|num| print num}
+  54321=> [1, 2, 3, 4, 5]
+
+----------
+
+.rindex(obj)
+.rindex {|element| block}
+return the index of the last element in the array == the argument
+with a block, return the index of the last element to return true
+
+new_array = [1, "one", 3, "three", 5, "three"]
+new_array.rindex("three")
+  => 5
+new_array.rindex {|string| string == "three"}
+  => 5
+
+----------
+
+.rotate(count)
+return new array by rotating the array until the argument is the first in the array
+the default count is 1
+
+new_array = [1, 2, 3, 4, 5]
+new_array.rotate
+  => [2, 3, 4, 5, 1]
+new_array.rotate(2)
+  => [3, 4, 5, 1, 2]
+
+----------
+
+.rotate!(count)
+replace elements in array with rotated values according to the argument
+
+new_array = [1, 2, 3, 4, 5]
+new_array.rotate!
+=> [2, 3, 4, 5, 1]
+  new_array => [2, 3, 4, 5, 1]
+new_array = [1, 2, 3, 4, 5]
+new_array.rotate!(3)
+=> [4, 5, 1, 2, 3]
+  new_array => [4, 5, 1, 2, 3]
+
+----------
+
+.sample
+.sample(num)
+randomly choose an element from the array
+with one argument, randomly choose n elements from the array
+
+new_array = [1, 2, 3, 4, 5]
+new_array.sample
+  => 1
+new_array.sample
+  => 4
+new_array.sample(3)
+  => [1, 2, 4]
+new_array.sample(3)
+  => [1, 3, 5]
+
+----------
+
+.select {|element| block}
+return new array of elements that return true from the block
+
+new_array = [1, 2, 3, 4, 5]
+new_array.select {|num| num < 3}
+  => [1, 2]
+
+----------
+
+.select! {|element| block}
+replace elements in the array that return true from the block
+
+new_array = [1, 2, 3, 4, 5]
+new_array.select! {|num| num < 3}
+=> [1, 2]
+new_array => [1, 2]
+
+----------
+
+.shift
+.shift(num)
+destructively delete first item of the array
+with one argument, destructively deletes first n elements of the array
+
+new_array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+new_array.shift
+  => 1
+  new_array => [2, 3, 4, 5, 6, 7, 8, 9]
+new_array.shift(4)
+  => [2, 3, 4, 5]
+  new_array => [6, 7, 8, 9]
+
+----------
+
+.shuffle
+.shuffl(random: Random.new(1))
+randomly mix elements of an array
+with an argument including Random class, use the same random number for each method call
+
+new_array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+new_array.shuffle
+  => [1, 5, 9, 8, 6, 2, 3, 7, 4]
+  => [2, 9, 3, 6, 8, 5, 1, 4, 7]
+  => [2, 3, 7, 1, 5, 4, 9, 8, 6]
+  new_array => [1, 2, 3, 4, 5, 6, 7, 8, 9]
+new_array.shuffle(random: Random.new(1))
+  => [9, 3, 7, 8, 2, 1, 5, 4, 6]
+  => [9, 3, 7, 8, 2, 1, 5, 4, 6]
+  => [9, 3, 7, 8, 2, 1, 5, 4, 6]
+
+----------
 
 
 
