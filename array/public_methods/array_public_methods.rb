@@ -588,6 +588,99 @@ arr4.flatten(3)
 
 ----------
 
+.frozen?
+return true if array is frozen or temporarily frozen while being sorted
+
+#TODO
+
+----------
+
+.hash
+compute a hash-code for array
+two arrays with the same content will have the same hash code
+  and return .eql? => true
+
+new_array = [1, 2, 3, 4, 5]
+new_array.hash
+  => -3882442013874083202
+
+----------
+
+.include?(obj)
+return true if element is in the array
+
+new_array = [1, 2, 3, 4, 5]
+new_array.include?(1)
+  => true
+new_array.include?(6)
+  => false
+
+----------
+
+.index(ob)
+.index {|element| block}
+return the index of the first value equal to element in array
+with a block, return the index of the first element that returns true
+
+new_array = [1, 2, 3, 4, 4, 4]
+new_array.index(3)
+  => 2
+new_array.index {|num| num > 1}
+  => 1
+
+----------
+
+.initialize_copy(another_array)
+  (THE ABOVE DOES NOT SEEM TO WORK, USE .REPLACE)
+.replace
+replace contents of array with array in argument
+
+new_array = [1, 2, 3, 4, 5]
+new_array.replace([6, 7, 8])
+=> [6, 7, 8]
+new_array => [6, 7, 8]
+
+----------
+
+.insert(index, obj)
+insert element directly before element with the given index
+a negative index will count backwards from the end so element is inserted after index
+
+new_array = ["0 index", "1 index", "2 index", "3 index", "4 index"]
+new_array.insert(2, "INSERTED ELEMENT")
+  => ["0 index", "1 index", "INSERTED ELEMENT", "2 index", "3 index", "4 index"]
+new_array.insert(-2, "INSERTED ELEMENT")
+  => ["0 index", "1 index", "2 index", "3 index", "INSERTED ELEMENT", "4 index"]
+
+----------
+
+.inspect
+.to_s
+create a string representation of each element in array
+
+new_array = [1, 2, 3, 4, 5]
+new_array.inspect
+  => "[1, 2, 3, 4, 5]"
+new_array.to_s
+  => "[1, 2, 3, 4, 5]"
+  new_array.to_s[0] => "["
+
+----------
+
+.join
+.join("string")
+return a string made of each element in the array
+with one argument, inserts obj between each element in the string
+new_array = [1, 2, 3, 4, 5]
+new_array.join
+  => "12345"
+new_array.join("WUT")
+  => "1WUT2WUT3WUT4WUT5"
+new_array.join(5)
+  TypeError: no implicit conversion of Fixnum into String
+
+----------
+
 
 
 
