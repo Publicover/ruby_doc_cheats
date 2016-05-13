@@ -707,6 +707,7 @@ new_array.last(30)
 
 .length
 return the number of elements in array
+alias of .size
 
 new_array = [1, 2, 3, 4, 5]
 new_array.length
@@ -995,10 +996,59 @@ new_array.shuffle(random: Random.new(1))
 
 ----------
 
+.shuffle!
+destructively and randomly mix elements of an array
 
+new_array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+new_array.shuffle!
+  => [1, 7, 2, 6, 5, 9, 8, 3, 4]
+  => [2, 1, 3, 5, 4, 9, 6, 8, 7]
+  => [6, 9, 8, 4, 5, 1, 3, 7, 2]
+  new_array => [6, 9, 8, 4, 5, 1, 3, 7, 2]
 
+----------
 
+.size
+alias of .length
+return the number of elements in array
 
+new_array = [1, 2, 3, 4, 5]
+new_array.size
+  => 5
+
+----------
+
+.slice(index)
+.slice(start, length)
+.slice(range)
+
+return element at index
+with two arguments, returns elements starting at first argument of length second argument
+with a range, returns elements included in the range
+
+new_array = [1, 2, 3, 4, 5]
+new_array.slice(2)
+  => 3
+new_array.slice(2, 3)
+  => [3, 4, 5]
+new_array.slice(2..4)
+  => [3, 4, 5]
+
+----------
+
+.slice!(index)
+.slice!(start, length)
+.slice!(range)
+delete element at index
+with two arguments, delete elements starting at first argument of length second element
+with range, delete elements included in range
+
+new_array = [1, 2, 3, 4, 5]
+new_array.slice!(2)
+=> 3
+  new_array => [1, 2, 4, 5]
+
+----------
 
 
 
