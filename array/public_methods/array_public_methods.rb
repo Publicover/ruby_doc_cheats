@@ -681,13 +681,150 @@ new_array.join(5)
 
 ----------
 
+.keep_if {|element| block}
+.select! {|element| block}
+deletes every element of the array that returns false from the block
+
+new_array = [1, 2, 3, 4, 5]
+new_array.keep_if {|num| num < 4}
+  => [1, 2, 3]
+
+----------
+
+.last
+.last(num)
+return the last element in array and returns nil if the array is empty
+
+new_array = [1, 2, 3, 4, 5]
+new_array.last
+  => 5
+new_array.last(3)
+  => [3, 4, 5]
+new_array.last(30)
+  => [1, 2, 3, 4, 5]
+
+----------
+
+.length
+return the number of elements in array
+
+new_array = [1, 2, 3, 4, 5]
+new_array.length
+  => 5
+
+----------
+
+.map {|element| block}
+return new array based on block
+
+new_array = [1, 2, 3, 4, 5]
+new_array.map {|num| num + 20}
+  => [21, 22, 23, 24, 25]
+another_array = ["one", "two", "three"]
+another_array.map {|element| element.length}
+  => [3, 3, 5]
+
+----------
+
+.map! {|element| block}
+replace each element in an array with block operation
+
+new_array = [1, 2, 3, 4, 5]
+new_array.map! {|num| num + 20}
+  => [21, 22, 23, 24, 25]
+  new_array => [21, 22, 23, 24, 25]
+another_array = ["one", "two", "three"]
+another_array.map! {|element| element.length}
+  => [3, 3, 5]
+  another_array => [3, 3, 5]
+
+----------
+
+.pack
+
+#TODO
+
+----------
+
+.permutation {|element| block}
+.permutation(num) {|element| block}
+create permutation of each element
+if no argument is given, returns all possible permutations
+  there is no guarantee that the permutaitons will be listed in a sensible order
+
+new_array = [1, 2, 3]
+new_array.permutation(3)
+  => #<Enumerator: [1, 2, 3]:permutation(3)>
+
+----------
+
+.pop
+.pop(num)
+return last element in an array, destroying original array
+with one argument, returns array with n elements
+
+new_array = [1, 2, 3, 4, 5]
+new_array.pop
+  => 5
+  new_array => [1, 2, 3, 4]
+new_array = [1, 2, 3, 4, 5]
+new_array.pop(3)
+  => [3, 4, 5]
+  new_array = [1, 2]
+
+----------
+
+.product(other_ary)
+.product(other_ary) {|element| block}
+return array of all combinations of elements from each array
+with a block, will yield all combinations and return array instead
+
+ new_array = [1, 2, 3,]
+ new_array.product([4, 5])
+  => [[1, 4], [1, 5], [2, 4], [2, 5], [3, 4], [3, 5]]
+new_array.product([4, 5], [6, 7])
+  => [[1, 4, 6], [1, 4, 7], [1, 5, 6], [1, 5, 7], [2, 4, 6], [2, 4, 7], [2, 5, 6], [2, 5, 7], [3, 4, 6], [3, 4, 7], [3, 5, 6], [3, 5, 7]]
+  => [[1, 4, 7], [1, 5, 7], [1, 6, 7], [2, 4, 7], [2, 5, 7], [2, 6, 7], [3, 4, 7], [3, 5, 7], [3, 6, 7]]
 
 
+----------
 
+.push(obj)
+original_array << new_element
+add object to the end of the array
 
+new_array = [1, 2, 3,]
+new_array.push("WUT")
+  => [1, 2, 3, "WUT"]
+new_array.push("---", "+++")
+  => [1, 2, 3, "WUT", "---", "+++"]
+new_array << 6
+  => [1, 2, 3, "WUT", "---", "+++", 6]
 
+----------
 
+.rassoc(string)
+return the first nested array by using == on the last object
 
+new_array = [[1, 2], [3, 4], [5, 6]]
+new_array.rassoc(4)
+  => nil
+new_array.rassoc("4")
+  => nil
+another_array = [[1, "one"], [2, "two"], [3, "three"], [3, "three"]]
+another_array.rassoc("three")
+  => [3, "three"]
+
+----------
+
+.reject {|element| block}
+return new array of elements of each item that returns false from the block
+
+new_array = [1, 2, 3, 4, 5]
+new_array.reject {|num| num > 3}
+  => [1, 2, 3]
+
+----------
 
 
 
