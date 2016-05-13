@@ -1050,6 +1050,175 @@ new_array.slice!(2)
 
 ----------
 
+.sort
+.sort {|a, b| block}
+sort array by the <=> operator
+passing a block allows you to use reverse alphabetical order
+
+new_array = [5, 1, 4, 2, 3]
+new_array.sort
+  => [1, 2, 3, 4, 5]
+new_array.sort {|a, b| b <=> a}
+  => [5, 4, 3, 2, 1]
+new_array.sort {|a, b| b > a}
+  NoMethodError: undefined method '>' for true:TrueClass
+
+----------
+
+.sort!
+.sort! {|a, b| block}
+destructively sort array with <=> operator
+passing a block allows you to use reverse alphabetical order
+
+new_array = ["Homer", "Marge", "Bart", "Lisa", "Maggie"]
+new_array.sort!
+  => ["Bart", "Homer", "Lisa", "Maggie", "Marge"]
+new_array.sort! {|a, b| b <=> a}
+  => ["Marge", "Maggie", "Lisa", "Homer", "Bart"]
+
+----------
+
+sort_by! {|obj| block}
+destructively sort elements in array according to block
+
+new_array = ["Homer", "Marge", "Bart", "Lisa", "Maggie"]
+new_array.sort_by! {|name| name.length}
+  => ["Bart", "Lisa", "Homer", "Marge", "Maggie"]
+
+----------
+
+.take(num)
+return first n elements of an array
+using a negative number returns ArgumentError
+
+new_array = [1, 2, 3, 4, 5]
+new_array.take(3)
+  => [1, 2, 3]
+
+----------
+
+.take_while(num)
+return all elements before an element returns false from the block
+
+new_array = [2, 3, 4, 5]
+new_array.take_while {|element| element.even?}
+  => [2]
+
+----------
+
+.to_a
+.to_ary
+change into array
+
+new_range = (1..10)
+new_range.to_a
+  => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+----------
+
+.to_h
+interpret array as key value pairs
+
+new_array = [[1, 2], [3, 4], [5, 6]]
+new_array.to_h
+  => {1=>2, 3=>4, 5=>6}
+another_array = [1, 2, 3, 4, 5, 6]
+another_array.to_h
+  TypeError: wrong element type Fixnum at 0 (expected array)
+
+----------
+
+.to_s
+alias for .inspect
+changes array into string
+
+new_array = [[1, 2], [3, 4], [5, 6]]
+new_array.to_s
+  => "[[1, 2], [3, 4], [5, 6]]"
+new_array = [1, 2, 3, 4, 5]
+new_array.to_s
+  => "[1, 2, 3, 4, 5]"
+
+----------
+
+.uniq
+.uniq {|item| ...}
+return array with all duplicate items deleted
+
+new_array = [1, 1, 2, 2, 3, 3]
+new_array.uniq
+  => [1, 2, 3]
+new_array.uniq {|item| item + 1}
+  => [1, 2, 3]
+
+----------
+
+.uniq!
+.uniq! {|item| ...}
+delete all duplicate elements from array
+
+new_array = [1, 1, 2, 2, 3, 3]
+new_array.uniq!
+  => [1, 2, 3]
+  new_array => => [1, 2, 3]
+
+----------
+
+.unshift(obj)
+add elements to the beginning of array
+
+new_array = [1, 2, 3, 4, 5]
+new_array.unshift("dragons")
+  => ["dragons", 1, 2, 3, 4, 5]
+new_array.unshift("misery", "sadness", "Westeros")
+  => ["misery", "sadness", "Westeros", "dragons", 1, 2, 3, 4, 5]
+
+----------
+
+.values_at(selector)
+return array according to selector
+
+new_array = [1, 2, 3, 4, 5]
+new_array.values_at(3)
+  => [4]
+new_array.values_at(0, 2)
+  => [1, 3]
+new_array.values_at(0..2, 3..4)
+  => [1, 2, 3, 4, 5]
+
+----------
+
+.zip(argument, ...)
+convert arguments into arrays then merges each element with corresponding elements from each argument
+this creates array with size of one more than the number of arguments
+nil is returned for each element that does not fit the size of the initial array
+
+a_arr = [1, 2, 3]
+b_arr = [4, 5, 6]
+b_arr.zip(a_arr)
+  => [[4, 1], [5, 2], [6, 3]]
+[7, 8, 9].zip(a_arr, b_arr)
+  => [[7, 1, 4], [8, 2, 5], [9, 3, 6]]
+[10].zip(a_arr, b_arr)
+  => [[10, 1, 4]]
+a_arr.zip(["one", "two"], ["three"])
+  => [[1, "one", "three"], [2, "two", nil], [3, nil, nil]]
+
+----------
+
+|
+array | other_ary
+return new array by joining two arrays, excluding duplicates and preserving the order from the original array
+also called "set Union"
+see also .uniq
+
+new_array = [1, 2, 3, 4, 5]
+another_array = [9, 3, 8, 2, 7, 5, 6]
+new_array | another_array
+  => [1, 2, 3, 4, 5, 9, 8, 7, 6]
+
+----------
+
 
 
 
