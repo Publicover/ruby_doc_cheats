@@ -99,6 +99,158 @@ returns -1, 0 or 1, or nil if two objects cannot be compared
 if two strings are of different size but match up to the shortest length,
   the longer string is considered greater
 
+new_string = "jim rulez"
+another_string = "jim rulez"
+omg_another = "JIM RULEZ"
+yet_another = "jim rulez, yeah"
+new_string <=> another_string
+  => 0
+new_string <=> omg_another
+  => 1
+new_string <=> yet_another
+  => -1
+
+----------
+
+==
+string == object
+return true if string is the same as object
+if object is not an instance of String but responds to .to_string, the two
+  strings are comapred using ===
+for objects of any Class, == is the same as .equal? because it compares the values
+  as they exist in the hash key
+
+new_string = "Tyrion is a Lannister."
+another_string = 'Tyrion is a Lannister.'
+yet_another = "Tyrion is a Lannister"
+num_string = "5"
+num_string_2 = 5
+new_string == another_string
+  => true
+new_string == yet_another
+  => true
+num_string == num_string_2
+  => false
+
+----------
+
+===
+string === object
+return true if string is same case as object in if/when cases
+
+case foo
+  when bar;  p 'do something'
+end
+
+if bar === foo
+  p 'do something'
+end
+
+----------
+
+=~
+
+#TODO
+
+----------
+
+string[index]
+string[start, length]
+string[range]
+string[regexp]
+string[regexp, capture]
+string[match_string]
+return object at item index
+return objects at start index of length
+return objects in range
+return matching portion of regexp
+return MatchData if capture is second argument
+return string that occurs in string if match_string is given
+
+got_string = "A new king rises in the North; Khaleesi prepares the Khal's funeral pyre."
+got_string[5]
+  => " "
+got_string[5, 10]
+  => " king rise"
+got_string[5..20]
+  => " king rises in t"
+
+----------
+
+string[fixnum] = new_string
+string[fixnum, fixnum] = new_string
+string[range] = aString
+string[regexp] = new_string
+string[regexp, fixnum] = new_string
+string[regexp, name] = new_string
+string[other_string] = new_string
+replace elements in a string
+
+new_string = "John Snow leads the Night's Watch."
+new_string[3] = "Oh, geez."
+  => "Oh, geez."
+  new_string => "JohOh, geez. Snow leads the Night's Watch."
+
+----------
+
+.ascii_only?
+return true with a string that is only of ASCII characters
+
+new_string = "abc"
+new_string.ascii_only?
+  => true
+"abc\u{6666}".force_encoding("UTF-8").ascii_only?
+  => false
+
+----------
+
+b
+
+#TODO
+
+----------
+
+.bytes
+.each_byte.to_a
+return array of bytes in string
+
+got_string = "Man, Joffrey is not a good king."
+got_string.bytes
+  => [
+        77, 97, 110, 44, 32, 74, 111, 102, 102, 114, 101, 121, 32, 105,
+        115, 32, 110, 111, 116, 32, 97, 32, 103, 111, 111, 100, 32, 107, 105,
+        110, 103, 46
+      ]
+
+----------
+
+.bytesize
+return length of string in bytes
+
+got_string = "Man, Joffrety is not a good king."
+got_string.bytesize
+  => 32
+
+----------
+
+.byteslice(fixnum)
+.byteslice(fixnum, fixnum)
+.byteslice(range)
+
+#TODO
+
+----------
+
+
+
+
+
+
+
+
+
+
+
 
 
 
