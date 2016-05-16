@@ -241,6 +241,63 @@ got_string.bytesize
 
 ----------
 
+.capitalize
+capitalize only the first letter of a string, lowercasing every other letter
+
+new_string = "PeNGuIN off DOOm"
+new_string.capitalize
+=> "Penguin off doom"
+  new_string => "PeNGuIN off DOOm"
+
+ ----------
+
+.capitalize!
+destructively capitalize only the first letter of a string, lowercasing every other letter
+
+new_string = "PeNGuIN off DOOm"
+new_string.capitalize!
+=> "Penguin off doom"
+ new_string => "Penguin off doom"
+
+----------
+
+.casecmp(other_string)
+case-insensitive version of <=>
+return 1, 0 or -1 if two objects are greater, equal or less than
+
+got_string = "HBO Now is pretty great, though."
+got_string.casecmp("hbo now is pretty great, though.")
+  => 0
+
+----------
+
+.center(width)
+.center(width, padding)
+center string in width
+if string is longer than width, returns string of length string
+if wideth is longer than string, returns string centered in width with padding on either side
+
+got_string = "Everything is awful in Westeros."
+got_string.center(50)
+  => "         Everything is awful in Westeros.         "
+got_string.center(50, "ba-da-bahn-ba")
+  => "ba-da-bahEverything is awful in Westeros.ba-da-bah"
+
+----------
+
+.chars
+.each_char.to_a
+return array of characters in string
+
+new_string = "jim rulez"
+new_string.chars
+=> ["j", "i", "m", " ", "r", "u", "l", "e", "z"]
+
+----------
+
+
+
+
 
 
 
